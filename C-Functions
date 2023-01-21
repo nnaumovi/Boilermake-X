@@ -46,8 +46,16 @@ public static class timerHeap {
     }
     
     public static void pushTime(DateTime t) {
-        spoilTimes.Insert(0, t);
-        Console.WriteLine(t);
+        
+        for (int i = 0; i < spoilTimes.Count; i++) {
+            if (spoilTimes[i].CompareTo(t) > 0) {
+                // t is earlier than spoilTime[i]
+                spoilTimes.Insert(i, t);
+                return;
+            }
+        }
+        
+        spoilTimes.Add(t);
         return;
     }
     
