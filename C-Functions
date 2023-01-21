@@ -1,0 +1,66 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+using System.Globalization;
+using System.Collections.Generic;
+
+public static class timerHeap {
+    static List<DateTime> spoilTimes = new List<DateTime>(){DateTime.Now, DateTime.Now, DateTime.Now};
+    
+    public static void Main(string[] args) {
+        
+        for (int i = 0; i < 5; i++) {
+            
+            for (int a = 0; a < 9999999; a++) {
+            for (int l = 0; l < 9; l++) {
+                // sleep lmao
+            }
+            }
+            
+            DateTime now = DateTime.Now;
+            pushTime(now);
+            
+            Console.WriteLine("peek");
+            DateTime peeked = timerHeap.peekTime();
+            Console.WriteLine(peeked);
+            
+            Console.WriteLine(spoilTimes.Count);
+            
+            for (int j = 0; j < spoilTimes.Count; j++) {
+                Console.WriteLine(spoilTimes[j]);
+            }
+            
+            // DateTime x = spoilTimes.RemoveAt(0);
+            DateTime popped = popTime();
+            Console.WriteLine("popped");
+            Console.WriteLine(popped);
+            
+            DateTime now2 = DateTime.Now;
+            pushTime(now2);
+            
+            DateTime popped2 = popTime();
+            Console.WriteLine("popped2");
+            Console.WriteLine(popped2);
+        }
+    }
+    
+    public static void pushTime(DateTime t) {
+        spoilTimes.Insert(0, t);
+        Console.WriteLine(t);
+        return;
+    }
+    
+    
+    public static DateTime peekTime() {
+        return spoilTimes[0];
+    }
+    
+    
+    public static DateTime popTime() {
+        DateTime earliestTime = spoilTimes[0];
+        spoilTimes.RemoveAt(0);
+        return earliestTime;
+    }
+    
+}
