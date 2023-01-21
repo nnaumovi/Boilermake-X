@@ -13,10 +13,16 @@ public static class timerHeap {
         for (int i = 0; i < 5; i++) {
             
             for (int a = 0; a < 9999999; a++) {
-            for (int l = 0; l < 9; l++) {
-                // sleep lmao
+                for (int l = 0; l < 9; l++) {
+                    // sleep lmao
+                }
             }
+            
+            if (timerHeap.peekTime().compareTo(DateTime.Now) < 0) {
+                // food has spoiled
+                DateTime spoilFood = popTime();
             }
+            
             
             DateTime now = DateTime.Now;
             pushTime(now);
